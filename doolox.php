@@ -152,7 +152,7 @@ function register_doolox_settings() {
 add_action('login_init', 'doolox_init');
 add_action( 'admin_notices', 'doolox_admin_notice' );
 register_deactivation_hook(__FILE__, 'doolox_deactivate');
-add_action('admin_menu', 'doolox_add_pages');
-add_action( 'admin_init', 'register_doolox_settings' );
+// add_action('admin_menu', 'doolox_add_pages');
+// add_action( 'admin_init', 'register_doolox_settings' );
 
 ?>
