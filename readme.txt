@@ -2,16 +2,16 @@
 Contributors: tpiha
 Tags: wordpress, doolox, wordpress manager, remote login
 Donate link: https://www.doolox.com
-Requires at least: 3.7
-Tested up to: 3.7
-Stable tag: trunk
+Requires at least: 3.6
+Tested up to: 3.8.1
+Stable tag: tags/1.1.0
 License: GPL
 License URI: https://github.com/tpiha/doolox-node/blob/master/LICENSE
 
 Doolox Node is a WordPress plugin for Doolox, free Open Source WordPress management tool and website builder.
 
 == Description ==
-Doolox is a free Open Source WordPress management tool and website builder available both as a SaaS and for download. It uses Doolox Node to login users to multiple WordPress websites over SSL without storing credentials in database. Give it a try, it\'s free!
+[Doolox](https://www.doolox.com/) is a free Open Source WordPress management tool and website builder available both as a SaaS and for download. It uses Doolox Node to login users to multiple WordPress websites over SSL without storing credentials in database. Give it a try, it's free!
 
 == Installation ==
 1. Upload the plugin folder to your /wp-content/plugins/ folder
