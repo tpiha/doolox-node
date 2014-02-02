@@ -12,10 +12,12 @@ Doolox Node is a WordPress plugin for Doolox, free Open Source WordPress managem
 3. Visit [doolox.com](https://www.doolox.com/) and connect your WordPress website
 
 ## Changelog ##
-### v1.1 (Jan 20 2014) ###
+### v1.1.1 (Feb 2 2014) ###
+* Bugfix - pass connected callback domain to plugin
 
-* Implemented SSL
+### v1.1.0 (Jan 24 2014) ###
+* Plugin adjusted for WordPress plugin repository
 
-### v1.0 (Jan 20 2014) ###
-
+### v1.0.0 (Jan 20 2014) ###
 * Finished first version
+* Implemented SSL

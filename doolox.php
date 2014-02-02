@@ -2,7 +2,7 @@
 /* 
 Plugin Name: Doolox Node
 Plugin URI: https://www.doolox.com/ 
-Version: 1.1.0
+Version: 1.1.1
 Author: <a href="https://www.doolox.com">Doolox</a>
 Description: Doolox is a free Open Source WordPress management tool and website builder available both as a SaaS and for download. It uses Doolox Node to login users to multiple WordPress websites over SSL without storing credentials in database. Give it a try, it's free!
 */
