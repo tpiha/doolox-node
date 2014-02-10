@@ -2,7 +2,7 @@
 /* 
 Plugin Name: Doolox Node
 Plugin URI: https://www.doolox.com/ 
-Version: 1.1.1
+Version: 1.2.0
 Author: <a href="https://www.doolox.com">Doolox</a>
 Description: Doolox is a free Open Source WordPress management tool and website builder available both as a SaaS and for download. It uses Doolox Node to login users to multiple WordPress websites over SSL without storing credentials in database. Give it a try, it's free!
 */
@@ -25,7 +25,18 @@ function doolox_init() {
 
     $data = $_POST['data'];
     if (strlen($data)) {
-        $pk = strlen(get_option('dooloxpk')) ? get_option('dooloxpk') : PUBLIC_KEY;
+
+        if (strlen(get_option('dooloxpk'))) {
+            $pk = get_option('dooloxpk');
+        }
+        else {
+            if (strlen(get_option('dooloxpkg'))) {
+                $pk = get_option('dooloxpkg');
+            }
+            else {
+                $pk = PUBLIC_KEY;
+            }
+        }
 
         $rsa = new Crypt_RSA();
         $rsa->loadKey($pk);
@@ -125,7 +136,7 @@ function doolox_login($data) {
 function doolox_admin_notice() {
     if (!strlen(get_option('dooloxrnd'))) {
         echo '<div class="error">
-                <p>This WordPress website is still not connected to your Doolox account. Plaese connect it or deactivate the plugin.</p>
+                <p>This WordPress website is still not connected to your <a href="https://www.doolox.com" target="_blank">Doolox</a> account. Plaese connect it or deactivate the plugin.</p>
             </div>';
     }
 }
@@ -135,6 +146,7 @@ function doolox_deactivate() {
     delete_option('dooloxid');
     delete_option('dooloxuser');
     delete_option('dooloxpk');
+    delete_option('dooloxpkg');
 }
 
 function doolox_add_pages() {
@@ -142,9 +154,7 @@ function doolox_add_pages() {
 }
 
 function register_doolox_settings() {
-    register_setting( 'doolox-options', 'dooloxpk'); 
-    add_settings_section('doolox-main', 'Doolox Settings', 'plugin_section_text', 'doolox-settings');
-    add_settings_field('doolox-field', 'Plugin Text Input', 'dooloxpk', 'doolox-settings', 'doolox-main');
+    register_setting('doolox-settings', 'dooloxpkg');
 } 
 
 
@@ -152,7 +162,7 @@ function register_doolox_settings() {
 add_action('login_init', 'doolox_init');
 add_action( 'admin_notices', 'doolox_admin_notice' );
 register_deactivation_hook(__FILE__, 'doolox_deactivate');
-// add_action('admin_menu', 'doolox_add_pages');
-// add_action( 'admin_init', 'register_doolox_settings' );
+add_action('admin_menu', 'doolox_add_pages');
+add_action( 'admin_init', 'register_doolox_settings' );
 
 ?>
